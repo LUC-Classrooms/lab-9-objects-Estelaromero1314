@@ -6,6 +6,8 @@ var myObj1, myObj2; // global variables to hold object instances
 
 function setup() {
   createCanvas(500, 350);
+  myObj1 = new MyClass(150, 175); 
+  myObj2 = new MyClass(350, 175);
   /* 
   add lines here to create 2 new objects using the class constructor below.
   hint: use the "new" keyword with the constructor function MyClass()
@@ -16,7 +18,10 @@ function setup() {
 function draw() {
   background(200);
   // add code here to make your objects move and display on canvas
-  
+  myObj1.move();
+  myObj1.display();
+  myObj2.move();
+  myObj2.display();
 }
 
 //Class constructor:
@@ -46,7 +51,8 @@ function MyClass(tempX, tempY){
     ellipse(0, 0, this.d/2, this.d);
     // note that when you want to use the objects properties, you need to use "this"
     // add more drawing code to make your image a little more complex
-
+    ellipse(0, -this.d/4, this.d/4, this.d/4); 
+    rect(-this.d/4, 0, this.d/3, this.d/6);
     pop(); // delete the tansparency layer after drawing the image
   }
 }
